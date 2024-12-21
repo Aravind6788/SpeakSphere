@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class="bg-gray-50">
+
+<%- include('partials/nav') %>
+
+<!-- Main Content -->
+ <main class="container mx-auto p-4 flex gap-4 h-screen">
+    <!-- Left Side - Video Area -->
+    <div class="flex-grow flex flex-col">
+        <!-- Title -->
+        <div class="mb-4 flex items-center justify-between">
+            <div>
+                <h1 class="text-xl font-semibold">[Internal] Weekly Report Marketing + Sales</h1>
+                <p class="text-sm text-gray-500">June 17th, 2023 | 11:00 AM</p>
+            </div>
+            <!-- Meeting Controls -->
+            <div class="flex items-center gap-2">
+                <button class="p-2 rounded-full bg-gray-200">
+                    <i data-lucide="users-plus" class="h-5 w-5"></i>
+                </button>
+                <div class="bg-gray-200 rounded-full px-4 py-2">
+                    cem-jvmt-hsu
+                </div>
+            </div>
+        </div>
+  
+        <!-- Video Grid -->
+        <div class="grid grid-cols-2 gap-4 flex-grow">
+            <div class="relative bg-gray-800 rounded-lg">
+                <div class="absolute bottom-4 left-4 bg-gray-800/50 px-3 py-1 rounded-full text-white">
+                    Adam Joseph
+                </div>
+            </div>
+            <div class="relative bg-gray-800 rounded-lg">
+                <div class="absolute bottom-4 left-4 bg-gray-800/50 px-3 py-1 rounded-full text-white">
+                    Cassie Jung
+                </div>
+            </div>
+            <div class="relative bg-gray-800 rounded-lg">
+                <div class="absolute bottom-4 left-4 bg-gray-800/50 px-3 py-1 rounded-full text-white">
+                    Alice Wong
+                </div>
+            </div>
+            <div class="relative bg-gray-800 rounded-lg">
+                <div class="absolute bottom-4 left-4 bg-gray-800/50 px-3 py-1 rounded-full text-white">
+                    Theresa Webb
+                </div>
+            </div>
+        </div>
+  
+        <!-- Controls -->
+        <div class="mt-4 flex items-center justify-center gap-4 py-4">
+            <button class="p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <i data-lucide="mic" class="h-6 w-6"></i>
+            </button>
+            <button class="p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <i data-lucide="video" class="h-6 w-6"></i>
+            </button>
+            <button class="p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <i data-lucide="monitor" class="h-6 w-6"></i>
+            </button>
+            <button class="p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <i data-lucide="layout-grid" class="h-6 w-6"></i>
+            </button>
+            <button class="p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <i data-lucide="message-circle" class="h-6 w-6"></i>
+            </button>
+            <button class="p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <i data-lucide="more-horizontal" class="h-6 w-6"></i>
+            </button>
+            <button class="px-6 py-3 bg-red-500 text-white rounded-full hover:bg-red-600">
+                End Call
+            </button>
+        </div>
+    </div>
+  
+    <!-- Right Sidebar -->
+    <div class="w-80 bg-white rounded-lg shadow-sm flex flex-col">
+        <!-- Participants Section -->
+        <div class="p-4 border-b">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="font-semibold">Participants</h2>
+                <button class="flex items-center gap-1 text-sm bg-gray-100 px-3 py-1 rounded-full">
+                    <i data-lucide="plus" class="h-4 w-4"></i>
+                    Add Participant
+                </button>
+            </div>
+            <!-- Participant List -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="h-8 w-8 rounded-full bg-gray-300"></div>
+                        <span>Dianne Russell</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button><i data-lucide="mic" class="h-4 w-4"></i></button>
+                        <button><i data-lucide="video" class="h-4 w-4"></i></button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="h-8 w-8 rounded-full bg-gray-300"></div>
+                        <span>Guy Hawkins</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button><i data-lucide="mic" class="h-4 w-4"></i></button>
+                        <button><i data-lucide="video" class="h-4 w-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Chat Section -->
+        <div class="p-4 flex-grow flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="font-semibold">Chats</h2>
+                <div class="flex gap-2">
+                    <button class="px-3 py-1 bg-gray-800 text-white rounded-full text-sm">Group</button>
+                    <button class="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">Personal</button>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div class="flex-grow space-y-4 overflow-y-auto mb-4">
+                <div class="flex gap-2">
+                    <div class="h-8 w-8 rounded-full bg-gray-300 flex-shrink-0"></div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-medium">Dianne Russell</span>
+                            <span class="text-xs text-gray-500">3:45 PM</span>
+                        </div>
+                        <p class="text-sm">Good afternoon, everyone.</p>
+                    </div>
+                </div>
+            </div>
+  
+            <!-- Chat Input -->
+            <div class="flex items-center gap-2 mt-auto">
+                <input type="text" placeholder="Type Something..." class="flex-grow p-2 border rounded-lg">
+                <button class="p-2 bg-blue-500 text-white rounded-lg">
+                    <i data-lucide="send" class="h-5 w-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+  </main>
+
+</body>
+</html>
+
+
+ 

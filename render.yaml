@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: node-app
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    region: oregon
+  - type: web
+    name: python-app
+    env: python
+    buildCommand: pip install -r python/requirements.txt
+    startCommand: python python/translate_server.py
+    plan: free
+    region: oregon

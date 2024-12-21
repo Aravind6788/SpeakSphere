@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Translation Test</title>
+</head>
+<body>
+    <h2>Translation Tester</h2>
+    <input type="text" id="textInput" placeholder="Enter text to translate">
+    <select id="langSelect">
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="hi">Hindi</option>
+        <option value="ta">Tamil</option>
+    </select>
+    <button id="translateBtn">Translate</button>
+    <p id="result"></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('translateBtn').addEventListener('click', function() {
+                const text = document.getElementById('textInput').value;
+                const targetLang = document.getElementById('langSelect').value;
+
+                fetch('https://python-speech-reco-server.onrender.com/translate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: text,
+                        target_lang: targetLang
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').textContent = data.translation;
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
+</body>
+</html>

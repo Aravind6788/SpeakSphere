@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class="bg-gray-50">
+    
+    <div class="main-container">
+        <div class="form-container">
+            <h2 class="heading">Create your account</h2>
+            <p class="paragraph">It's free and easy</p>
+            
+            <form action="/signup" method="POST">
+                <!-- <div class="form-group">
+                    <input type="text" name="name" class="form-input" placeholder="Enter your name">
+                </div> -->
+                <div class="form-group">
+                    <input type="text" id="username" name="username" class="form-input" placeholder="Type your e-mail or phone number" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Type your password" required>
+                    <small>Must be 8 characters at least</small>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="terms" required>
+                        By creating an account means you agree to the Terms and Conditions, and our Privacy Policy
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+    
+            <div class="social-login">
+                <button class="btn btn-outline">
+                    <img src="/images/google.svg" alt="Google">
+                </button>
+                <button class="btn btn-outline">
+                    <img src="/images/apple.svg" alt="Apple">
+                </button>
+                <button class="btn btn-outline">
+                    <img src="/images/facebook.svg" alt="Facebook">
+                </button>
+            </div>
+    
+            <p style="text-align: center; margin-top: 1rem;">
+                Already have an account? <a href="/login">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+
+</body>
+</html>

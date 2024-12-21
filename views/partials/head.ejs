@@ -1,0 +1,349 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+
+  
+  <title>ConvoWave</title>
+  <style>
+
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+      }
+
+      .navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 2rem;
+          background: #fff;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .logo {
+          height: 40px;
+      }
+
+      .nav-links {
+          display: flex;
+          gap: 2rem;
+      }
+
+      .nav-links a {
+          text-decoration: none;
+          color: #333;
+      }
+
+      .main-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+            background: url("/images/loginBg.svg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          margin: 0 auto;
+          padding: 2rem;
+          height: 100vh;
+      }
+
+      .profile-dropdown {
+          position: relative;
+          display: inline-block;
+      }
+
+      .profile-dropdown-content {
+          display: none;
+          position: absolute;
+          right: 0;
+          background-color: #fff;
+          min-width: 200px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          border-radius: 4px;
+          z-index: 1;
+      }
+
+      .profile-dropdown:hover .profile-dropdown-content {
+          display: block;
+      }
+
+      .dropdown-item {
+          padding: 12px 16px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #374151;
+          text-decoration: none;
+      }
+
+      .dropdown-item:hover {
+          background-color: #f3f4f6;
+      }
+
+      .heading{
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .paragraph{
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+
+
+      .form-container {
+          max-width: 400px;
+          min-width: 400px;
+          /* margin: 2rem auto; */
+          padding: 2rem;
+          border-radius: 8px;
+          background: #fff;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      .form-group {
+          margin-bottom: 1rem;
+      }
+
+      .form-input {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          margin-top: 0.5rem;
+      }
+
+
+      .joincreatemeetcontain{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .joinMeetingForm .form-group >.form-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 200px;
+        max-height: 300px;
+      }
+
+      .joinMeetingForm .form-group > input{
+        width: 100%;
+        height: 40px;
+        border: 1px solid rgb(194, 194, 194);
+      }
+
+
+
+
+      .btn {
+          width: 100%;
+          padding: 0.75rem;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-weight: 600;
+      }
+
+      .btn-primary {
+          background: #000;
+          color: #fff;
+      }
+
+      .btn-outline {
+          width: 50px;
+          border-radius: 50%;
+          background: #fff;
+          border: 1px solid #ddd;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+        .btn-outline2 {
+            background-color: transparent;
+            border: 1px solid #555; /* Change to desired border color */
+            color: #555; /* Change to desired text color */
+            padding: 10px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-outline2:hover {
+            background-color: #555;
+            color: #fff;
+        }
+
+
+        .social-login2{
+          display: flex;
+          justify-content: start;
+          gap: 1rem;
+          margin-top: 0.5rem;
+        }
+
+      .social-login {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 1rem;
+      }
+
+      .social-login2 > a ,.social-login > a{
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(203, 199, 199);
+        border-radius: 50%;
+      }
+
+      .footer {
+          background: #f5f5f5;
+          padding: 2rem;
+          margin-top: 4rem;
+      }
+
+      .headingfoot{
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .manualicons{
+        display: flex;
+        align-items: center;
+        /* margin-bottom: 8px; */
+      }
+
+      .manualicons > img{
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+      }
+
+      .socialicons1{
+        width: 24px;
+      }
+      .socialicons2{
+        width: 22px;
+      }
+      .socialicons3{
+        width: 20px;
+      }
+
+      .social-links{
+        display: flex;
+        column-gap: 8px;
+      }
+
+      .social-links > a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgb(203, 199, 199);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 768px) {
+          .navbar {
+              flex-direction: column;
+              padding: 1rem;
+          }
+          
+          .nav-links {
+              margin-top: 1rem;
+              gap: 1rem;
+          }
+      }
+
+
+      .overallvideocontain{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+
+
+
+      .videoContainer{
+        width: 800px;
+        border-radius: 6px;
+        border: solid 6px #f0f0f0;
+        background-color: #ebebeb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        padding: 0 40px;          
+        box-sizing: border-box;  
+      }
+
+      .videoda{
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      video{
+        margin: 1%;
+        border: 1px solid rgb(134, 134, 134);
+        border-radius: 16px;
+        max-width: 300px;
+      }
+
+
+      .popup {
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      .popup form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .hiddenv{
+        display: none;
+      }
+
+      .captionhere{
+        position: absolute;
+        bottom: 50px;
+      }
+
+  </style>
+</head>

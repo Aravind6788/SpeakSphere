@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class="bg-gray-50">
+
+    <div class="main-container">
+        <div class="form-container">
+            <h1 class="heading">Welcome back!</h1>
+            <p class="paragraph">Meet the good taste today</p>
+            
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" class="form-input" placeholder="Type your e-mail or phone number" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Type your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+    
+            <div class="social-login">
+                <button class="btn btn-outline">
+                    <img src="/images/google.svg" alt="Google">
+                </button>
+                <button class="btn btn-outline">
+                    <img src="/images/apple.svg" alt="Apple">
+                </button>
+                <button class="btn btn-outline">
+                    <img src="/images/facebook.svg" alt="Facebook">
+                </button>
+            </div>
+    
+            <p style="text-align: center; margin-top: 1rem;">
+                Don't have an account? <a href="/signup">Sign Up</a>
+            </p>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class="bg-gray-50">
+    <%- include('partials/nav') %>
+    <div class="joincreatemeetcontain">
+        <div class="form-container">
+            <h1 class="text text-center bold text-xl mb-2">Join meeting</h1>
+            <form id="joinMeetingForm">
+                <div class="form-group">
+                    <input type="text" id="meetingURL" placeholder="Enter Meeting URL" required>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="/features" type="button" class="btn btn-outline2 text text-center">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Join</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
+
+<script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Form submission to open URL
+        const joinMeetingForm = document.getElementById('joinMeetingForm');
+        joinMeetingForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            const meetingURL = document.getElementById('meetingURL').value;
+            if (meetingURL) {
+                window.open(meetingURL, '_blank'); // Open the URL in a new tab
+            } else {
+                alert('Please enter a valid meeting URL.');
+            }
+        });
+    });
+
+    feather.replace();
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class="bg-gray-50">
+    <%- include('partials/nav') %>
+    
+    <!-- Hero Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                    A Video Call Conference to Connect world over peoples
+                </h1>
+                <p class="text-lg text-gray-600">
+                    "Where the world meets, no matter where you are."
+                </p>
+                <div class="flex space-x-4">
+                    <a href="/room" class="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors">
+                        Join now
+                    </a>
+                    <a href="#" class="inline-flex items-center px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-colors">
+                        Watch Demo
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 gap-8 pt-8">
+                    <div>
+                        <h3 class="text-4xl font-bold text-gray-900">17M</h3>
+                        <p class="text-gray-600">Users</p>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-bold text-gray-900">+95%</h3>
+                        <p class="text-gray-600">Customer satisfaction</p>
+                    </div>
+                </div>
+
+                <!-- Trusted By Section -->
+                <div class="pt-8">
+                    <p class="text-sm text-gray-500 mb-4">Trusted by:</p>
+                    <div class="flex space-x-6 items-center">
+                        <img  src="/images/googlemeet.png" alt="Google Meet" class="h-8 grayscale hover:grayscale-0 transition-all"> <label style="margin-left: 2px; font-weight: 500;">Google Meet</label>
+                        <img style="width: 25px; height: 25px;" src="/images/slack.png" alt="Slack" class="h-8 grayscale hover:grayscale-0 transition-all"> <label style="margin-left: 2px; font-weight: 500;">Slack</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl transform rotate-3"></div>
+                <img 
+                    src="/images/homepng.png" 
+                    alt="Video Conference" 
+                    class="relative rounded-2xl shadow-lg w-full object-cover"
+                >
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section class="py-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Why Choose ConvoWave?</h2>
+                <p class="text-gray-600 mt-4">Experience seamless video conferencing with our cutting-edge features</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class=" p-2 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <img src="/images/hdcam.png" alt="">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">HD Video Quality</h3>
+                    <p class="text-gray-600">Crystal clear video conferencing with adaptive quality</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="p-2 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <img src="/images/securev.png" alt="">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Secure Meetings</h3>
+                    <p class="text-gray-600">End-to-end encryption for all your conversations</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="p-2 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <img src="/images/groupv.png" alt="">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Large Groups</h3>
+                    <p class="text-gray-600">Host meetings with up to 100 participants</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-black text-white rounded-2xl p-12 text-center mb-20">
+            <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
+            <p class="text-gray-300 mb-8">Join millions of users worldwide in better video conferencing</p>
+            <a href="/signup" class="inline-flex items-center px-8 py-3 bg-white text-black rounded-lg hover:bg-gray-100 transition-colors">
+                Get Started Free
+            </a>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+  
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+  
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+  
+        feather.replace();
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class="bg-gray-50">
+
+    <%- include('partials/nav') %>
+    
+    <div class="joincreatemeetcontain">
+        <div class="form-container">
+            <h2>Create Room</h2>
+            <form action="/create-room" method="POST">
+                <div class="form-group">
+                    <input type="text" name="url" class="form-input" placeholder="https://convowave.design.com">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-input" placeholder="Set Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+    
+            <div style="margin-top: 2rem;">
+                <p>Share Via</p>
+                <div class="social-login2">
+                    <a href="#"><img class="socialicons1" src="/images/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img class="socialicons2" src="/images/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img class="socialicons3" src="/images/whatsapp.png" alt="Whatsup"></a>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<%- include('partials/footer') %>
+
+<script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    });
+
+    feather.replace();
+</script>
+</body>
+</html>
