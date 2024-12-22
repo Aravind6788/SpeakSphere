@@ -46,7 +46,7 @@ app.get("/signup", (req, res) => {
 });
 
 app.get("/home", (req, res) => {
-  res.render("home");
+  res.render("features");
 });
 
 // Create meeting room
