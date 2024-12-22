@@ -1,14 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/head') %>
-<body class="bg-gray-50">
-<!-- <%- include('partials/nav') %> -->
+<style>
+  /* Custom styles for dark theme and layout */
+  body {
+    background-color: #1a202c; /* Dark background */
+    color: #f7fafc; /* Light text color */
+  }
+
+  .modal {
+    background-color: #2d3748; /* Darker modal background */
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .modal h2, .modal h4 {
+    color: #edf2f7; /* Light text color for headings */
+  }
+
+  .modal input {
+    border: 1px solid #4a5568; /* Darker border */
+    background-color: #2d3748; /* Dark input background */
+    color: #edf2f7; /* Light text color */
+  }
+
+  .modal input::placeholder {
+    color: #a0aec0; /* Placeholder color */
+  }
+
+  .modal button {
+    transition: background-color 0.3s ease;
+  }
+
+  .modal button:hover {
+    background-color: #4a5568; /* Darker button on hover */
+  }
+
+  .videoContainer {
+    background-color: #2d3748; /* Darker video area */
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  .chat-area {
+    background-color: #2d3748; /* Dark background for chat area */
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .chat-area h2 {
+    color: #edf2f7; /* Light text color for chat title */
+  }
+
+  .chat-area input {
+    border: 1px solid #4a5568; /* Darker border for chat input */
+    background-color: #2d3748; /* Dark input background */
+    color: #edf2f7; /* Light text color */
+  }
+
+  .chat-area button {
+    background-color: #4a5568; /* Dark button background */
+    color: #edf2f7; /* Light text color */
+  }
+
+  .chat-area button:hover {
+    background-color: #4a5568; /* Darker on hover */
+  }
+
+  .control-button {
+    background-color: #4a5568; /* Dark button background */
+    color: #edf2f7; /* Light text color */
+  }
+
+  .control-button:hover {
+    background-color: #4a5568; /* Darker on hover */
+  }
+
+  .captionhere {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background for captions */
+    color: #edf2f7; /* Light text color */
+  }
+</style>
+
+<body class="bg-gray-900">
+<%- include('partials/nav') %>
 
 <!-- Enter Password Modal -->
 <div id="enterPasswordModal" class="modal hiddenv fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white p-6 rounded shadow-md">
-      <h2 class="text-lg font-semibold mb-4 text text-center">Enter Creditials</h2>
-      <h4 class="text-lg mb-2">User Name</h4>
+    <div class="modal">
+      <h2 class="text-lg font-semibold mb-4 text-center">Enter Credentials</h2>
+      <h4 class="text-lg mb-2">User  Name</h4>
       <input class="border p-2 w-full mb-4" type="text" id="usernameInput" value="<%= user ? user.name : '' %>" />
       <h4 class="text-lg mb-2">Enter Password</h4>
       <input type="password" id="meetingPassword" class="border p-2 w-full mb-4" placeholder="Password" required />
@@ -17,19 +99,19 @@
     </div>
 </div>
   
-  <!-- Set Password Modal -->
-  <div id="setPasswordModal" class="modal hiddenv fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white p-6 rounded shadow-md">
-      <h2 class="text-lg font-semibold mb-4 text text-center">Set Creditials</h2>
-      <h4 class="text-lg mb-2">User Name</h4>
-      <input class="border p-2 w-full mb-4" type="text" id="usernameInput" value="<%= user ? user.name : '' %>" />
+<!-- Set Password Modal -->
+<div id="setPasswordModal" class="modal hiddenv fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="modal">
+      <h2 class="text-lg font-semibold mb-4 text-center">Set Credentials</h2>
+      <h4 class="text-lg mb-2">User  Name</h4>
+      <input class="border p-2 w-full mb-4 ```html
+" type="text" id="usernameInput" value="<%= user ? user.name : '' %>" />
       <h4 class="text-lg mb-2">Set Password</h4>
       <input type="password" id="newMeetingPassword" class="border p-2 w-full mb-4" placeholder="New Password" required />
       <button id="setPassword" class="bg-green-500 text-white p-2 rounded">Set Password</button>
       <button id="closeSetModal" class="bg-gray-300 p-2 rounded">Close</button>
     </div>
-  </div>
-
+</div>
 
 <main class="container mx-auto p-4 flex gap-4 h-screen">
     <!-- Left Side - Video Area -->
@@ -38,11 +120,11 @@
         <div class="mb-4 flex items-center justify-between">
             <div>
                 <h1 class="text-xl font-semibold">Video Chat Room</h1>
-                <p class="text-sm text-gray-500" id="meeting-time">Active Meeting</p>
+                <p class="text-sm text-gray-400" id="meeting-time">Active Meeting</p>
             </div>
             <!-- Meeting Controls -->
             <div class="flex items-center gap-2">
-                <select id="language-select" class="language-selector bg-gray-200 rounded-full px-4 py-2">
+                <select id="language-select" class="language-selector bg-gray-700 rounded-full px-4 py-2 text-white">
                     <option value="en-US">English (US)</option>
                     <option value="ta-IN">Tamil (India)</option>
                     <option value="hi-IN">Hindi (India)</option>
@@ -59,32 +141,28 @@
         <!-- Main Content Area -->
         <div class="flex-grow flex flex-col overallvideocontain">
             <!-- Video Grid -->
-            <div class="flex-grow videoContainer" >
+            <div class="flex-grow videoContainer">
                 <div class="videoda" id="video-grid">
                     <!-- Videos will be added dynamically -->
                 </div>
 
-                <div id="translated-captions" class="mt-2 min-h-[2rem] p-2 bg-white bg-opacity-60 text-black font-bold rounded text-center captionhere">Hello</div>
+                <div id="translated-captions" class="mt-2 min-h-[2rem] p-2 bg-gray-800 text-white font-bold rounded text-center captionhere">Hello</div>
             </div>
-            <!-- video-grid grid grid-cols-2 gap-4 -->
-
-
-            
 
             <!-- Video Controls -->
             <div class="mt-0 flex items-center justify-center gap-4 py-4">
-                <button id="muteButton" class="control-button p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <button id="muteButton" class="control-button p-4 rounded-full bg-gray-700 hover:bg-gray-600">
                     <i data-lucide="mic" class="h-5 w-5"></i>
                 </button>
-                <button id="videoButton" class="control-button p-4 rounded-full bg-gray-200 hover:bg-gray-300">
+                <button id="videoButton" class="control-button p-4 rounded-full bg-gray-700 hover:bg-gray-600">
                     <i data-lucide="video" class="h-5 w-5"></i>
                 </button>
-                <button id="leaveButton" class="control-button p-4 rounded-full bg-red-500 hover:bg-red-600 text-white">
+                <button id="leaveButton" class="control-button p-4 rounded-full bg-red-600 hover:bg-red-500 text-white">
                     <i data-lucide="phone-off" class="h-5 w-5"></i>
                 </button>
 
-                <div class=" mt-0 flex justify-between items-center">
-                    <select id="translation-language" class="bg-gray-100 rounded px-2 py-1">
+                <div class="mt-0 flex justify-between items-center">
+                    <select id="translation-language" class="bg-gray-600 rounded px-2 py-1 text-white">
                         <option value="en">English</option>
                         <option value="ta">Tamil</option>
                         <option value="es">Spanish</option>
@@ -94,7 +172,7 @@
                         <option value="ja">Japanese</option>
                         <option value="ko">Korean</option>
                     </select>
-                    <button id="speak-button" class="ml-2 p-2 rounded-full bg-green-400 hover:bg-green-500 text-white">
+                    <button id="speak-button" class="ml-2 p-2 rounded-full bg-green-500 hover:bg-green-400 text-white">
                         <i data-lucide="volume-2" class="h-5 w-5"></i>
                     </button>
                 </div>
@@ -103,17 +181,18 @@
             <!-- Captions Section -->
             <div class="mt-4 space-y-4" hidden>
                 <!-- Your Speech Section -->
-                <div class="bg-white p-4 rounded-lg shadow" >
+                <div class="bg-gray-800 p-4 rounded-lg shadow">
                     <h3 class="font-medium mb-2">Your Speech</h3>
-                    <div id="output" class="min-h-[2rem] p-2 bg-gray-50 rounded">Live Captions</div>
-                    <div class="mt-2 flex justify-between items-center">
-                        <button id="start-button" class="p-2 rounded-full bg-green-500 hover:bg-green-600 text-white">
+                    <div id="output" class="min-h-[2rem] p-2 bg-gray-700 rounded">Live Captions</div>
+                    <div class="mt-2 flex justify ```html
+-between items-center">
+                        <button id="start-button" class="p-2 rounded-full bg-green-500 hover:bg-green-400 text-white">
                             <i data-lucide="microphone" class="h-5 w-5"></i>
                         </button>
-                        <button id="stop-button" class="p-2 rounded-full bg-red-500 hover:bg-red-600 text-white">
+                        <button id="stop-button" class="p-2 rounded-full bg-red-600 hover:bg-red-500 text-white">
                             <i data-lucide="microphone-off" class="h-5 w-5"></i>
                         </button>
-                        <select id="your-translation-language" class="bg-gray-100 rounded px-2 py-1">
+                        <select id="your-translation-language" class="bg-gray-600 rounded px-2 py-1 text-white">
                             <option value="en">English</option>
                             <option value="ta">Tamil</option>
                             <option value="es">Spanish</option>
@@ -125,15 +204,15 @@
                             <option value="zh">Chinese</option>
                         </select>
                     </div>
-                    <div id="your-translated-captions" class=" ml-4 mt-2 min-h-[2rem] p-2 bg-gray-50 rounded"></div>
+                    <div id="your-translated-captions" class="ml-4 mt-2 min-h-[2rem] p-2 bg-gray-700 rounded"></div>
                 </div>
 
                 <!-- Remote Speech Section -->
-                <div class="bg-white p-4 rounded-lg shadow" hidden>
+                <div class="bg-gray-800 p-4 rounded-lg shadow" hidden>
                     <h3 class="font-medium mb-2">Remote Speech</h3>
-                    <div id="remote-captions" class="min-h-[2rem] p-2 bg-gray-50 rounded">Remote Captions</div>
+                    <div id="remote-captions" class="min-h-[2rem] p-2 bg-gray-700 rounded">Remote Captions</div>
                     <div class="mt-2 flex justify-between items-center">
-                        <select id="translation-language" class="bg-gray-100 rounded px-2 py-1">
+                        <select id="translation-language" class="bg-gray-600 rounded px-2 py-1 text-white">
                             <option value="en">English</option>
                             <option value="ta">Tamil</option>
                             <option value="es">Spanish</option>
@@ -145,34 +224,32 @@
                             <option value="zh">Chinese</option>
                         </select>
                     </div>
-                    <div id="translated-captions" class="mt-2 min-h-[2rem] p-2 bg-gray-50 rounded"></div>
+                    <div id="translated-captions" class="mt-2 min-h-[2rem] p-2 bg-gray-700 rounded"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Right Side - Chat Area -->
-    <div class="w-96 flex-shrink-0 flex flex-col bg-white rounded-lg shadow" >
-        <div class="p-4 border-b">
-            <h2 class="font-medium">Chat</h2>
+    <div class="w-96 flex-shrink-0 flex flex-col chat-area">
+        <div class="p-4 border-b bg-gray-800">
+            <h2 class="font-medium text-white">Chat</h2>
         </div>
-        <div class="flex-grow overflow-y-auto p-4">
+        <div class="flex-grow overflow-y-auto p-4 bg-gray-900">
             <div class="chat-log space-y-2">
                 <!-- Chat messages will be added dynamically -->
             </div>
         </div>
-        <div class="p-4 border-t">
+        <div class="p-4 border-t bg-gray-800">
             <div class="flex gap-2">
-                <input type="text" id="chat-input" class="flex-grow p-2 rounded-lg border" placeholder="Type a message...">
-                <button id="send-button" class="p-2 rounded-full bg-gray-200 hover:bg-gray-300">
-                    <i data-lucide="paper-airplane" class="h-5 w-5"></i>
+                <input type="text" id="chat-input" class="flex-grow p-2 rounded-lg border bg-gray-700 text-white" placeholder="Type a message...">
+                <button id="send-button" class="p-2 rounded-full bg-gray-600 hover:bg-gray-500">
+                    <i data-lucide="paper-airplane" class="h-5 w-5 text-white"></i>
                 </button>
             </div>
         </div>
     </div>
 </main>
-
-
 
 <!-- Scripts -->
 <script>
@@ -183,7 +260,6 @@
 <script src="script.js" defer></script>
 <script src="speechRecognition.js" defer></script>
 <script src="textToSpeech.js" defer></script>
-
 <script src="chat.js" defer></script>
 
 <script>
@@ -196,7 +272,7 @@
     participantsTab.addEventListener('click', () => {
         participantsSection.classList.remove('hidden');
         chatSection.classList.add('hidden');
-        participantsTab.classList.add('border-b-2', 'border-blue-500');
+        participantsTab.classList.add('border-b-2 ', 'border-blue-500');
         participantsTab.classList.remove('text-gray-500');
         chatTab.classList.remove('border-b-2', 'border-blue-500');
         chatTab.classList.add('text-gray-500');
@@ -215,8 +291,6 @@
 <script>
     const isPasswordSet = "<%= JSON.stringify(isPasswordSet) %>" === 'true'; // Ensure it's a boolean
     const roomId = "<%= roomId %>";
-
-    
     const enterPasswordModal = document.getElementById("enterPasswordModal");
     const setPasswordModal = document.getElementById("setPasswordModal");
     const submitPasswordButton = document.getElementById("submitPassword");
@@ -232,11 +306,8 @@
         setPasswordModal.classList.remove("hiddenv");
     }
 
-
-
     // Handle password submission for entering password
     submitPasswordButton.addEventListener("click", async () => {
-
         const password = document.getElementById("meetingPassword").value;
 
         // Verify password with server
@@ -259,7 +330,6 @@
 
     // Handle setting the password
     setPasswordButton.addEventListener("click", async () => {
-
         const newPassword = document.getElementById("newMeetingPassword").value;
 
         // Save new meeting with password
@@ -268,8 +338,6 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ roomId, password: newPassword }),
         });
-
-        console.log(response)
 
         if (response.ok) {
             const message = await response.text(); // Get the success message
@@ -292,7 +360,6 @@
         window.location.href = "/features";
         setPasswordModal.classList.add("hiddenv");
     });
-
 </script>
 
 </body>

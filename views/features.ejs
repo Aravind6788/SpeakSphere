@@ -1,48 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/head') %>
-<body class="bg-gray-50">
+<style>
+  /* Custom styles for the layout and animations */
+  body {
+    background-color: #1a202c; /* Dark background */
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .box {
+    background-color: #2d3748; /* Darker box background */
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 1rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    color: #cbd5e0; /* Light gray text */
+    margin-bottom: 1.5rem;
+  }
+
+  .button {
+    background-color: #4a5568; /* Button background */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px; /* Full rounded */
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #2d3748; /* Darker on hover */
+  }
+
+  .icon {
+    margin-left: 0.5rem;
+  }
+
+  .content {
+    text-align: center;
+    color: #cbd5e0;
+    margin-bottom: 2rem;
+  }
+</style>
+
+<body class="bg-gray-900 text-white">
 
   <%- include('partials/nav') %>
   
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Hero Section -->
+  <main class="container">
+    <h1 class="text-3xl font-bold mb-8">Welcome to SpeakSphere</h1>
+    <p class="content">Collaborate seamlessly with your team. Create rooms for discussions, brainstorming, and project management. Join existing rooms with ease and stay connected.</p>
+    <div class="container">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <!-- Create Room Section -->
-      <div class="flex flex-col items-center text-center">
-        <div class="relative w-full max-w-md mb-8">
-          <img 
-            src="/images/createm.png" 
-            alt="Create Room Illustration" 
-            class="w-full h-auto"
-          >
-        </div>
-        <h3 class="text-xl font-semibold mb-4">Create Your Room</h3>
-        <p class="text-gray-600 mb-6">Start a new collaboration space and invite your team members to join.</p>
-        <a href="/room" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2">
+      <div class="box">
+        <h3 class="title">Create Your Room</h3>
+        <p class="description">Start a new collaboration space and invite your team members to join.</p>
+        <a href="/room" class="button">
           <span>Create Room</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-circle"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon lucide lucide-plus-circle"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
         </a>
       </div>
   
       <!-- Join Room Section -->
-      <div class="flex flex-col items-center text-center">
-        <div class="relative w-full max-w-md mb-8">
-          <img 
-            src="/images/joinmm.png" 
-            alt="Join Room Illustration" 
-            class="w-full h-auto"
-          >
-        </div>
-        <h3 class="text-xl font-semibold mb-4">Join Existing Room</h3>
-        <p class="text-gray-600 mb-6">Enter a room code to join your team's collaboration space.</p>
-        <a href="/join-meeting" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2">
-          <span>Join room</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
-        </a>
-      </div>
+      <div class="box">
+        <h3 class="title">Join Existing Room</h3>
+        <p class="description">Enter a room code to join your team's collaboration space.</p>
+        <a href="/join-meeting" class="button">
+          <span>Join Room</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon lucide lucide-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+        </a> </div>
     </div>
   
+    <p class="content">Join us today and enhance your team's productivity with effective communication and collaboration tools.</p>
+
     <!-- Features Grid Section -->
       <!-- <%- include('partials/footer') %> -->
 
@@ -64,7 +120,6 @@
     });
 
     feather.replace();
-</script>
+  </script>
 </body>
 </html>
-   
